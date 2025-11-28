@@ -1,5 +1,7 @@
 import {TextInput} from "@repo/ui/input";
+import {useRouter} from "next/navigation";
 export default function Home(){
+  const router=useRouter();
   return(
     <div style={{
       height: "100vh",
@@ -17,9 +19,11 @@ export default function Home(){
         flexDirection:"column"
 
       }}>
-        <TextInput size="big" placeholder="Room name"></TextInput>
+        <TextInput onChange={()=>{
+          alert("hi");
+        }} size="big" placeholder="Room name"></TextInput>
         <input type="text"></input>
-        <button>Join Room</button>
+        <button onClick={()=>{router.push("/chat/123")}}>Join Room</button>
 
       </div>
     </div>
